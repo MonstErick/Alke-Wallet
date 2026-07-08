@@ -24,29 +24,47 @@
             class="form-control"
             placeholder="Ingrese el nombre del contacto">
       </div>
-      <div class="d-grid gap-3">
-        <button type="button" class="btn btn-primary">Buscar</button>
+
+      <button type="button" class="btn btn-primary w-100 mb-3">Buscar</button>
+
       <h3>Contactos</h3>
-      <ul id="contactList" class="list-group">
+      <ul id="contactList" class="list-group mb-3">
         <li class="list-group-item">
-          <div class="contact-info">
-            <span class="contact-name">Marlon Guerra</span>
-            <span class="contact-details">RUT: 15.535.525-3, Alias: Marlon.Guerra, Banco: BCI</span>
-          </div>
+          <input type="radio" name="contacto" value="Marlon Guerra">
+          <span class="contact-name">Marlon Guerra</span>
+          <br>
+          <span class="contact-details">Número de Cuenta: 9866373732, Alias: Marlon.Guerra, Banco: BCI</span>
         </li>
+
         <li class="list-group-item">
-          <div class="contact-info">
-            <span class="contact-name">Marcia Rojas</span>
-          <span class="contact-details">RUT: 5.735.624-4, Alias: Marcia.Rojas, Banco: Santander</span>
-          </div>
+          <input type="radio" name="contacto" value="Marcia Rojas">
+          <span class="contact-name">Marcia Rojas</span>
+          <br>
+          <span class="contact-details">Número de Cuenta: 667374425, Alias: Marcia.Rojas, Banco: Santander</span>
         </li>
       </ul>
-        <button
-            type="button"
-            class="btn btn-success"
-            data-bs-toggle="modal"
-            data-bs-target="#nuevoContacto">Agregar Nuevo Contacto</button>
-          <a href="menu.html" class="btn btn-secondary">Volver al Menú Principal</a>
+
+      <div class="mb-3">
+        <label class="form-label">Monto a Enviar</label>
+        <input
+          type="number"
+          id="montoEnviar"
+          class="form-control"
+          placeholder="Ingrese el Monto">
+      </div>
+
+  <p id="mensajeEnvio" class="text-center fw-bold"></p>
+
+  <div class="d-grid gap-3">
+    <button type="button" id="btnEnviarDinero" class="btn btn-warning">Enviar Dinero</button>
+  
+    <button
+      type="button"
+      class="btn btn-success"
+      data-bs-toggle="modal"
+      data-bs-target="#nuevoContacto">Agregar Nuevo Contacto</button>
+          
+      <a href="menu.html" class="btn btn-secondary">Volver al Menú Principal</a>
       </div>
       </form>
     </div>
@@ -69,6 +87,7 @@
       <label class="form-label">Nombre</label>
         <input
           type="text"
+          id="nombreContacto"
           class="form-control">
     </div>
 
@@ -76,7 +95,23 @@
       <label class="form-label">Número de Cuenta</label>
         <input
           type="text"
+          id="numeroCuenta"
           class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Alias</label>
+      <input 
+      type="text" 
+      id="aliasContacto" 
+      class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Nombre del Banco</label>
+      <input type="text" 
+      id="bancoContacto" 
+      class="form-control">
     </div>
     </div>
 
@@ -87,6 +122,7 @@
         data-bs-dismiss="modal">Cancelar</button>
       <button
         type="button"
+        id="btnGuardarContacto"
         class="btn btn-success">Guardar Contacto</button>
     </div>
     </div>
@@ -94,6 +130,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/sendmoney.js"></script>
 
 </body>
 
