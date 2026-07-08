@@ -64,7 +64,8 @@ let movimientos = JSON.parse(localStorage.getItem("movimientos")) || [];
     tipo: "Envío", 
     detalle: "Envío a " + contactoSeleccionado.val(),
     monto: monto,
-    signo: "-"
+    signo: "-",
+    fecha: new Date().toLocaleString("es-CL")
   });
 
   localStorage.setItem("movimientos", JSON.stringify(movimientos));

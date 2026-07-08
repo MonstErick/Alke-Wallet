@@ -29,7 +29,8 @@ movimientos.push({
   tipo: "Depósito",
   detalle: "Depósito realizado",
   monto: monto,
-  signo: "+"
+  signo: "+",
+  fecha: new Date().toLocaleString("es-CL")
 });
 
 localStorage.setItem("movimientos", JSON.stringify(movimientos));
