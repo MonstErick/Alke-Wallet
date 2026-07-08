@@ -1,18 +1,29 @@
-document.getElementById("btnDepositar").addEventListener("click", function() {
-  
-  let monto = parseInt(document.getElementById("monto").value);
-  
-    if (isNaN(monto) || monto <= 0) {
-      document.getElementById("mensajeDeposito").textContent = "Ingrese un Monto Válido";
-        return;
-    }
+$(document).ready(function() {
+  let saldo = localStorage.getItem("saldo");
+  if (saldo === null) {
+    saldo = 500000;
+    localStorage.setItem("saldo", saldo);
+  }
 
-    let saldo = localStorage.getItem("saldo");
-      saldo = parseInt(saldo);
-      saldo = saldo + monto;
-      localStorage.setItem("saldo", saldo);
+$("#saldoActual").text("$" + Number(saldo).toLocaleString("es-CL"));
 
-      let movimientos = JSON.parse(localStorage.getItem("movimientos")) || [];
+$("#btnDepositar").click(function () {
+  let monto = parseInt($("#monto").val());
+  if (isNaN(monto) || monto <= 0) {
+    $("#alert-container").html(`
+      <div class="alert alert-danger text-center">
+      Ingrese un Monto Válido
+      </div>
+      `);
+    return;
+  }
+
+  saldo = parseInt(localStorage.getItem("saldo"));
+  saldo = saldo + monto;
+
+  localStorage.setItem("saldo", saldo);
+
+let movimientos = JSON.parse(localStorage.getItem("movimientos")) || [];
 
 movimientos.push({
   tipo: "Depósito",
@@ -23,11 +34,21 @@ movimientos.push({
 
 localStorage.setItem("movimientos", JSON.stringify(movimientos));
 
-      document.getElementById("mensajeDeposito").textContent = "Depósito realizado con Éxito. Nuevo Saldo: $" + saldo.toLocaleString("es-CL");
-    
-    document.getElementById("monto").value = "";
-      setTimeout(function() {
-        window.location.href = "menu.html";
-      }, 2000);
+$("#montoDepositado").text(
+  "Monto depositado: $" + monto.toLocaleString("es-CL")
+);
 
+$("#alert-container").html(`
+  <div class="alert alert-success text-center">
+  Depósito realizado con Éxito. Nuevo Saldo: $${saldo.toLocaleString("es-CL")}
+  </div>
+  `);
+
+$("#monto").val("");
+  
+setTimeout(function() {
+  window.location.href = "menu.html";
+  }, 2000);
+  
   });
+});

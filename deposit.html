@@ -16,6 +16,13 @@
   <div class="container mt-4">
     <div class="card shadow p-4 mx-auto" style="max-width:500px;">
       <h2 class="text-center mb-4">Depositar Dinero</h2>
+
+  <div class="alert alert-info text-center saldo-actual">Saldo Actual:
+    <strong id="saldoActual"></strong>
+  </div>
+
+  <div id="alert-container"></div>
+
     <form>
       <div class="mb-3">
         <label for="monto" class="form-label">Monto a Depositar</label>
@@ -32,13 +39,15 @@
       </div>
     
     <div>
-      <p id="mensajeDeposito" class="text-center fw-bold mt-3"></p>
+      <p id="montoDepositado" class="text-center fw-bold mt-3"></p>
     </div>
     </form>
     </div>
   </div>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="js/deposit.js"></script>
+
 </body>
 
 </html>

@@ -77,3 +77,20 @@ span {
   font-size: 20px;
   color: grey;
 }
+
+.alert {
+  font-family: "Yanone Kaffeesatz";
+  font-size: 18px;
+}
+
+.saldo-actual {
+  font-family: "Yanone Kaffeesatz";
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#saldoActual {
+  display: block;
+  font-size: 42px;
+  color: green;
+}
