@@ -26,3 +26,7 @@ let saldo = localStorage.getItem("saldo");
   document.getElementById("btnMovimientos").addEventListener("click", function () {
     redirigir("últimos movimientos", "transactions.html");
   });
+
+  $("#btnCerrarSesion").click(function() {
+  window.location.href = "login.html";
+});

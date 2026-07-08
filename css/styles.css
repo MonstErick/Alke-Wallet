@@ -94,3 +94,8 @@ span {
   font-size: 42px;
   color: green;
 }
+
+#btnCerrarSesion {
+  font-family: "Yanone Kaffeesatz";
+  font-size: 25px;
+  }
