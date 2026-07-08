@@ -40,10 +40,19 @@ $(document).ready(function() {
 
     movimientosFiltrados.forEach(function(movimiento) {
       let color = movimiento.signo === "+" ? "text-success" : "text-danger";
-
+      
+      let fechaMovimiento = movimiento.fecha
+        ? `<small class="text-muted">${movimiento.fecha}</small>` 
+        : "";
+        
       let item = `
-        <li class="list-group-item d-flex justify-content-between">
-          <span>${movimiento.detalle}</span>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <span>${movimiento.detalle}</span>
+            <br>
+            ${fechaMovimiento}
+          </div>
+          
           <span class="${color} fw-bold">
             ${movimiento.signo}$${Number(movimiento.monto).toLocaleString("es-CL")}
           </span>
